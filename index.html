@@ -44,7 +44,7 @@
 
     <div id="menu">
 
-        <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-16">
+        <main class="grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-10 mx-auto max-w-7xl px-2 mb-12">
             <!-- LISTA DE PRODUTOS-->
             <div class="flex gap-2">
                 <img 
@@ -155,7 +155,7 @@
 
         <!-- INICIO LISTA DE BEBIDAS -->
         <div class="mx-auto max-w-7xl px-2 my-2">
-            <h2 class="font-bold text-3xl">Bebidas</h2>
+            <h2 class="font-bold text-3xl text-center">Bebidas</h2>
         </div>
 
         <!-- INICIO GRID BEBIDAS -->
@@ -217,5 +217,20 @@
         <!-- FIM LISTA DE BEBIDAS -->
     </div>
     <!-- FIM MENU -->
+
+    <!-- INICIO FOOTER -->
+    <footer class="w-full bg-red-500 py-3 fixed bottom-0 z-10 flex items-center justify-center">
+        
+        <button
+            class="flex items-center gap-2 text-white font-bold"
+            id="cart-btn"
+        >
+            (<span id="cart-count">2</span>)
+            Ver meu carrinho
+            <i class="fa fa-cart-plus text-lg text-white"></i>
+        </button>
+
+    </footer>
+    <!-- FIM FOOTER -->
 </body>
 </html>

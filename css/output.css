@@ -562,6 +562,10 @@ video {
   margin-top: 1rem;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
 .flex {
   display: flex;
 }
@@ -602,18 +606,32 @@ video {
   border-radius: 9999px;
 }
 
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
 .bg-zinc-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 27 / var(--tw-bg-opacity));
+}
+
+.bg-green-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
 }
 
 .bg-background-home {
   background-image: url('/assets/bg.png');
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .text-4xl {
@@ -623,6 +641,14 @@ video {
 
 .font-bold {
   font-weight: 700;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-normal {
+  font-weight: 400;
 }
 
 .text-white {

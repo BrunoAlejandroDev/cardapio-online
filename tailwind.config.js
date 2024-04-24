@@ -3,7 +3,7 @@ module.exports = {
   content: ["./**/*.{html, js}"],
   theme: {
     fontFamily: {
-      'sans': ['Raleway', 'sans-serif']
+      'sans': ['Roboto', 'sans-serif']
     },
     extend: {
       backgroundImage: {

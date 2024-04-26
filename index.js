@@ -108,6 +108,7 @@ function updateCarinho () {
     });
 
     // atualizando o contador de produtos
+    cartCount.innerHTML = cartItems.length
 }
 
 /* FIM MENU */

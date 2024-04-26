@@ -9,6 +9,8 @@ const cartCount = document.getElementById('cart-count');
 const addressInput = document.getElementById('address');
 const addressWarn = document.getElementById('address-warn');
 
+let cartItems = [];
+
 /* INICIO MODAL */
 
 // Abrir o modal do carrinho
@@ -45,8 +47,25 @@ menu.addEventListener('click', (event) => {
     let parentButton = event.target.closest(".add-to-cart-btn");
     const name = parentButton.getAttribute("data-name");
     const price = Number(parentButton.getAttribute("data-price"));
-    console.log(name);
-    console.log(price);
+
+    // adicionar os produtos no carrinho
+    addItemToCart(name, price);
 })
+
+// função para adicionar os produtos no carrinho 
+function addItemToCart(name, price) {
+    const existingItem = cartItems.find(duplicateItem => duplicateItem.name == name)
+    if (existingItem) {
+        existingItem.quantity += 1;
+        return;
+    }
+
+    cartItems.push({
+        name,
+        price,
+        quantity: 1,
+    });
+    console.log(cartItems);
+}
 
 /* FIM MENU */

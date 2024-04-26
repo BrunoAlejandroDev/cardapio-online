@@ -16,6 +16,7 @@ let cartItems = [];
 // Abrir o modal do carrinho
 cartBtn.addEventListener('click', function() {
     // alternando entre hidden e flex
+    updateCarinho();
     if (cartModal.classList.contains('hidden')) {
         cartModal.classList.replace('hidden', 'flex');
     }
@@ -57,15 +58,56 @@ function addItemToCart(name, price) {
     const existingItem = cartItems.find(duplicateItem => duplicateItem.name == name)
     if (existingItem) {
         existingItem.quantity += 1;
-        return;
+    }
+    else {
+        cartItems.push({
+            name,
+            price,
+            quantity: 1,
+        });
+        console.log(cartItems);
     }
 
-    cartItems.push({
-        name,
-        price,
-        quantity: 1,
+    updateCarinho();
+}
+
+// atualizar o carrinho
+function updateCarinho () {
+    cartItemsContainer.innerHTML = '';
+    let total = 0;
+    
+    // percorrer o array cartItems
+    cartItems.forEach(item => {
+        const cartItemsElement = document.createElement("div");
+        cartItemsElement.classList.add("flex", "justify-between", "mb-4", "flex-col")
+
+        cartItemsElement.innerHTML = `
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class = "font-medium">${item.name}</p>
+                    <p>Quant: ${item.quantity}</p>
+                    <p class= "font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
+                </div>
+
+                <button>
+                    Remover
+                </button>
+            </div>
+        `
+        // calcular o total dos items
+        total += item.price * item.quantity;
+
+        // inserir os elementos no HTML
+        cartItemsContainer.appendChild(cartItemsElement)
     });
-    console.log(cartItems);
+
+    // atualizando o valor dos preços para moeda brasileira
+    cartTotal.textContent = total.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+
+    // atualizando o contador de produtos
 }
 
 /* FIM MENU */

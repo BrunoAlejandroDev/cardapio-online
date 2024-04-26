@@ -36,3 +36,17 @@ closeModalBtn.addEventListener('click', ()=> {
 })
 
 /* FIM MODAL */
+
+/* INICIO MENU */
+
+// pegar o nome do produto e o preço 
+menu.addEventListener('click', (event) => {
+    // pegando o nome e o preço do elemento
+    let parentButton = event.target.closest(".add-to-cart-btn");
+    const name = parentButton.getAttribute("data-name");
+    const price = Number(parentButton.getAttribute("data-price"));
+    console.log(name);
+    console.log(price);
+})
+
+/* FIM MENU */

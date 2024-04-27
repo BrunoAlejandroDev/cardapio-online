@@ -111,4 +111,30 @@ function updateCarinho () {
     cartCount.innerHTML = cartItems.length
 }
 
+// Remover o item do carrinho
+cartItemsContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains("remove-from-cart-btn")) {
+        const name = event.target.getAttribute("data-name");
+        removeItemCart(name);
+    }
+})
+
+// Função para remover o item do carrinho
+function removeItemCart (name) {
+    const index = cartItems.findIndex(item => item.name === name);
+
+    if (index !== -1) {
+        const item = cartItems[index];
+
+        if (item.quantity > 1) {
+            item.quantity -= 1;
+            updateCarinho();
+            return;
+        }
+        
+        cartItems.splice(index, 1);
+        updateCarinho();
+    }
+
+}
 /* FIM MENU */

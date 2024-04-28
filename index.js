@@ -150,6 +150,12 @@ addressInput.addEventListener('click', (event) => {
 
 // Finalizar pedido
 checkoutBtn.addEventListener('click', () => {
+    const isOpen = checkRestaurantIsOpen();
+    if (!isOpen) {
+        alert("O restaurante encontra-se fechado.")
+        return;
+    }
+
     if (cartItems.length === 0) {
         return;
     }
@@ -159,12 +165,30 @@ checkoutBtn.addEventListener('click', () => {
         addressInput.classList.add("border-red-500")
         return;
     }
+
+    // enviar o pedido para a API do whatsapp
+    const cartItemsAPI = cartItems.map( (item) => {
+        // mensagem a ser mandada via wpp
+        return (
+            `
+            ${item.name}
+            Quantidade: (${item.quantity}) 
+            Preço: R$ ${item.price}
+            ----------
+            `
+        ) 
+    }).join("");
+    
+    const message = encodeURIComponent(cartItemsAPI);
+    const phone = "85999991111"
+
+    window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank");
 })
 /* FIM MENU */
 
 /* INICIO ESTADO RESTAURANTE */
 
-// verificar a hora 
+// verificar a hora e verificar o estado do restaurante 
 function checkRestaurantIsOpen () {
     const data = new Date();
     const hora = data.getHours();

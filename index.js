@@ -148,6 +148,7 @@ addressInput.addEventListener('click', (event) => {
     }
 })
 
+// Finalizar pedido
 checkoutBtn.addEventListener('click', () => {
     if (cartItems.length === 0) {
         return;
@@ -160,3 +161,26 @@ checkoutBtn.addEventListener('click', () => {
     }
 })
 /* FIM MENU */
+
+/* INICIO ESTADO RESTAURANTE */
+
+// verificar a hora 
+function checkRestaurantIsOpen () {
+    const data = new Date();
+    const hora = data.getHours();
+
+    return hora >= 18 && hora < 22; // retorna true - restaurante aberto
+}
+
+const spanRestaurantStatus = document.getElementById("restaurant-status");
+const isRestaurantOpen = checkRestaurantIsOpen();
+
+if (isRestaurantOpen) {
+    spanRestaurantStatus.classList.remove("bg-red-500");
+    spanRestaurantStatus.classList.add("bg-green-600");
+}
+else {
+    spanRestaurantStatus.classList.add("bg-red-500");
+    spanRestaurantStatus.classList.remove("bg-green-600");
+}
+/* FIM ESTADO RESTAURANTE */

@@ -756,7 +756,7 @@ video {
 }
 
 .bg-background-home {
-  background-image: url('assets/bg.png');
+  background-image: url('assets/restaurante-header.jpg');
 }
 
 .p-1 {
@@ -859,10 +859,6 @@ video {
 
 body {
   background-color: #F6F7F8;
-}
-
-header {
-  background-image: url("../assets/bg.png");
 }
 
 .hover\:-rotate-2:hover {

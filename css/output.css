@@ -861,6 +861,10 @@ body {
   background-color: #F6F7F8;
 }
 
+header {
+  background-image: url("../assets/bg.png");
+}
+
 .hover\:-rotate-2:hover {
   --tw-rotate: -2deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));

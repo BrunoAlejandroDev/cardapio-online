@@ -153,6 +153,8 @@ checkoutBtn.addEventListener('click', () => {
     const isOpen = checkRestaurantIsOpen();
     if (!isOpen) {
         alert("O restaurante encontra-se fechado.")
+        cartItems = [];
+        updateCarinho();
         return;
     }
 
@@ -183,6 +185,10 @@ checkoutBtn.addEventListener('click', () => {
     const phone = "85999991111"
 
     window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank");
+
+    // zerando o carrinho após a compra 
+    cartItems = [];
+    updateCarinho();
 })
 /* FIM MENU */
 

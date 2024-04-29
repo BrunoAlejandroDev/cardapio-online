@@ -152,7 +152,17 @@ addressInput.addEventListener('click', (event) => {
 checkoutBtn.addEventListener('click', () => {
     const isOpen = checkRestaurantIsOpen();
     if (!isOpen) {
-        alert("O restaurante encontra-se fechado.")
+        Toastify({
+            text: "This is a toast",
+            duration: 3000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: "#EF4444",
+            }
+        }), showToast();
         cartItems = [];
         updateCarinho();
         return;
